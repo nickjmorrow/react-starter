@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { RootState } from '../RootState';
+import { Switch, Route } from 'react-router';
+import { Home } from '~/components/Home';
+import { Counter } from '~/components/Counter';
+import { FetchData } from '~/components/FetchData';
+import { NotFound } from '~/components/NotFound';
+import { Layout } from '~/components/Layout';
 
 interface AppProps {
     name: string;
@@ -22,10 +28,18 @@ export default function App({ name }: AppProps) {
     console.log(todos);
     return (
         <Container padding="1em">
-            <span>Testing!</span>
-            {todos.map(t => (
-                <span key={t.todoId}>{t.description}</span>
-            ))}
+            <Layout>
+                <span>Testing 1!</span>
+                {todos.map(t => (
+                    <span key={t.todoId}>{t.description}</span>
+                ))}
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/counter" component={Counter} />
+                    <Route path="/fetch-data" component={FetchData} />
+                    <Route component={NotFound} />
+                </Switch>
+            </Layout>
         </Container>
     );
 }
