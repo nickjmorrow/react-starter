@@ -1,4 +1,7 @@
 import { StateType } from 'typesafe-actions';
-import { rootReducer } from '~/rootReducer';
+import { rootReducer } from './rootReducer';
+import { TodosState } from './todos/TodosState';
 
-export type RootState = StateType<typeof rootReducer>;
+export interface RootState {
+    todosState: TodosState;
+}

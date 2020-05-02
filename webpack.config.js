@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     mode: 'development',
     watch: true,
@@ -17,6 +18,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            '~': path.resolve(__dirname, 'src/'),
+        },
     },
     output: {
         filename: 'bundle.js',
@@ -26,9 +30,13 @@ module.exports = {
         new webpack.DefinePlugin({
             __DEV__: true,
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'public', 'index.html'),
+        }),
+        new CleanWebpackPlugin(),
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
+        contentBase: path.resolve(__dirname, 'dist'),
         liveReload: true,
         port: 9000,
         historyApiFallback: true,

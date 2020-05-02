@@ -1,3 +1,3 @@
-import { todosInitialState } from '~/todos/todosInitialState';
+import { todosInitialState } from '../todos/todosInitialState';
 
 export type TodosState = typeof todosInitialState;

@@ -1,7 +1,7 @@
 import { action } from 'typesafe-actions';
-import { Todo } from '~/todos/types/Todo';
+import { Todo } from '../todos/types/Todo';
 
-enum TodosActionTypeKeys {
+export enum TodosActionTypeKeys {
     ADD_TODO = 'ADD_TODO',
     REMOVE_TODO = 'REMOVE_TODO',
     UPDATE_TODO = 'UPDATE_TODO',
