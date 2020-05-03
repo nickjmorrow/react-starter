@@ -13,7 +13,8 @@ describe('random salvage drop mission run count calculator', () => {
         const player: Player = {
             incarnateAbilities: [],
             salvage: [],
-            incarnateTheads: [],
+            incarnateThreads: 20,
+            empyreanMerits: 0,
             desiredIncarnateAbilities: [IncarnateAbilityA],
         };
 

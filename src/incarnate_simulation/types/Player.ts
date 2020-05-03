@@ -3,6 +3,7 @@ import { IncarnateAbility, Salvage, IncarnateThread } from '~/incarnate_simulati
 export type Player = {
     incarnateAbilities: IncarnateAbility[];
     salvage: Salvage[];
-    incarnateTheads: IncarnateThread[];
+    incarnateThreads: number;
+    empyreanMerits: number;
     desiredIncarnateAbilities: IncarnateAbility[];
 };

@@ -42,23 +42,57 @@ const buildSalvageDropRarityCount = (salvageRarities: SalvageRarity[]): SalvageR
     return initialSalvageDropRarityCount;
 };
 
-const doesActualSalvageDropRarityCountMeetRequired = (
+const rarities = Object.keys(getInitialSalvageDropRarityCount()) as SalvageRarity[];
+
+const getDifferenceInActualVsRequiredSalvageRarityCount = (
     actualSalvageRarityDropCount: SalvageRarityDropCount,
     requiredSalvageRarityDropCount: SalvageRarityDropCount,
-): boolean => {
-    let doesMeetRequired = true;
-    for (const rarity in requiredSalvageRarityDropCount) {
+): SalvageRarityDropCount => {
+    const salvageDropCountDifferent = getInitialSalvageDropRarityCount();
+    rarities.forEach(rarity => {
         const requiredCount = requiredSalvageRarityDropCount[rarity as SalvageRarity];
         const actualCount = actualSalvageRarityDropCount[rarity as SalvageRarity];
-        doesMeetRequired = doesMeetRequired && actualCount >= requiredCount;
-    }
-    return doesMeetRequired;
+        salvageDropCountDifferent[rarity] = requiredCount - actualCount;
+    });
+    return salvageDropCountDifferent;
 };
 
-const doesPlayerHaveEnoughSalvageDrops = (salvageDrops: SalvageRarity[], requiredSalvage: Salvage[]): boolean => {
+const salvageRarityToThreadCost = {
+    Common: 20,
+    Uncommon: 60,
+};
+
+const salvageRarityToMeritCost = {
+    Rare: 8,
+    VeryRare: 20,
+};
+
+const doesPlayerHaveEnoughSalvageDrops = (
+    salvageDrops: SalvageRarity[],
+    requiredSalvage: Salvage[],
+    player: Player,
+): boolean => {
     const actualSalvageRarityDropCount = buildSalvageDropRarityCount(salvageDrops);
     const requiredSalvageRarityDropCount = buildSalvageDropRarityCount(requiredSalvage.map(rs => rs.salvageRarity));
-    return doesActualSalvageDropRarityCountMeetRequired(actualSalvageRarityDropCount, requiredSalvageRarityDropCount);
+    const salvageDifference = getDifferenceInActualVsRequiredSalvageRarityCount(
+        actualSalvageRarityDropCount,
+        requiredSalvageRarityDropCount,
+    );
+
+    let { incarnateThreads, empyreanMerits } = player;
+
+    rarities.forEach(rarity => {
+        const missingSalvage = Math.max(0, salvageDifference[rarity]);
+        if (rarity in salvageRarityToThreadCost) {
+            incarnateThreads -=
+                missingSalvage * salvageRarityToThreadCost[rarity as keyof typeof salvageRarityToThreadCost];
+        } else if (rarity in salvageRarityToMeritCost) {
+            empyreanMerits -=
+                missingSalvage * salvageRarityToMeritCost[rarity as keyof typeof salvageRarityToMeritCost];
+        }
+    });
+
+    return incarnateThreads >= 0 && empyreanMerits >= 0;
 };
 
 @injectable()
@@ -70,7 +104,6 @@ export class RandomSalvageDropMissionRunCountCalculator {
     }
 
     calculateRandomSalvageDropMissionRunCount(player: Player): number {
-        // first,
         const unobtainedIncarnateAbilities = getUnobtainedIncarnateAbilities(player);
 
         let missionCount = 0;
@@ -84,7 +117,7 @@ export class RandomSalvageDropMissionRunCountCalculator {
 
         let salvageDrops: SalvageRarity[] = [];
 
-        while (!doesPlayerHaveEnoughSalvageDrops(salvageDrops, requiredSalvage)) {
+        while (!doesPlayerHaveEnoughSalvageDrops(salvageDrops, requiredSalvage, player)) {
             const salvageDrop = this._randomSalvageRarityProvider.getRandomSalvageRarity();
             salvageDrops = [...salvageDrops, salvageDrop];
             missionCount += 1;
