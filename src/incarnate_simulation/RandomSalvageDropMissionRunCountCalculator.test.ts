@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { RandomSalvageDropMissionRunCountCalculator } from '~/incarnate_simulation/RandomSalvageDropMissionRunCountCalculator';
 import { Player } from '~/incarnate_simulation/types';
-import { IncarnateAbilityA } from '~/incarnate_simulation/incarnateAbilities';
+import { incarnateAbilities } from '~/incarnate_simulation/incarnateAbilities';
 
 const getAverage = (input: number[]): number => input.reduce((agg, cur) => agg + cur, 0) / input.length;
 
@@ -15,7 +15,7 @@ describe('random salvage drop mission run count calculator', () => {
             salvage: [],
             incarnateThreads: 20,
             empyreanMerits: 0,
-            desiredIncarnateAbilities: [IncarnateAbilityA],
+            desiredIncarnateAbilities: [incarnateAbilities.MusculatureCoreBoost],
         };
 
         const runCount = 1000;
