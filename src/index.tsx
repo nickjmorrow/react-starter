@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-
 import { store } from './store';
-import App from './components/App';
+import { App } from '~/landing/App';
 import { BrowserRouter } from 'react-router-dom';
 
 const baseUrl = '';
@@ -11,7 +10,7 @@ const baseUrl = '';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter basename={baseUrl}>
-            <App name="World" />
+            <App />
         </BrowserRouter>
     </Provider>,
     document.querySelector('#container'),

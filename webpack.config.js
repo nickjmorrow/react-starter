@@ -39,6 +39,7 @@ module.exports = {
         liveReload: true,
         port: 3000,
         https: true,
+        hot: true,
         historyApiFallback: true,
         writeToDisk: true,
     },

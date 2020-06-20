@@ -1,6 +1,6 @@
-import { todoActions, TodosActionTypeKeys } from './todosActions';
+import { todoActions, TodosActionTypeKeys } from './todoActions';
 import { TodosState } from './TodosState';
-import { ActionType, getType } from 'typesafe-actions';
+import { ActionType } from 'typesafe-actions';
 import { produce } from 'immer';
 import { todosInitialState } from '~/todos/todosInitialState';
 

@@ -1,5 +1,5 @@
 import { action } from 'typesafe-actions';
-import { Todo } from '../todos/types/Todo';
+import { Todo } from './types/Todo';
 
 export enum TodosActionTypeKeys {
     ADD_TODO = 'ADD_TODO',

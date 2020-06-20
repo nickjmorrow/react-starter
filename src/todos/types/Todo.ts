@@ -1,4 +1,4 @@
 export interface Todo {
-	todoId: number;
-	description: string;
+    todoId: number;
+    description: string;
 }
