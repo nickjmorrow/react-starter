@@ -12,6 +12,7 @@ export const CreateTodo: React.FC = () => {
     const [description, setDescription] = React.useState('');
     const handleClick = (): void => {
         dispatch(todoActions.addTodo(description));
+        setDescription('');
     };
 
     return (
@@ -20,7 +21,7 @@ export const CreateTodo: React.FC = () => {
             <Input
                 value={description}
                 onChange={(e): void => setDescription(e.currentTarget.value)}
-                data-test-id={testingElementIds.createTodoInput}
+                data-test={testingElementIds.createTodoInput}
             />
             <Button onClick={handleClick}>Submit</Button>
         </Container>

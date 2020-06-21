@@ -9,7 +9,8 @@
         "lint:css": "stylelint './src/**/*.tsx'",
         "test": "jest",
         "format": "prettier --write '*/**/*.{ts,tsx}'",
-        "cypress:open": "cypress open"
+        "cypress:open": "cypress open",
+        "cypress:run": "cypress run"
     },
     "dependencies": {
         "@testing-library/react": "^10.3.0",

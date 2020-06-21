@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from '~/core/Link';
 import styled from 'styled-components';
-import { componentRouteMappings } from '~/landing/componentRouteMappings';
+import { componentRouteMappings } from '~/core/componentRouteMappings';
 
 export const SideNav: React.FC = () => {
     return (

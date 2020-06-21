@@ -9,7 +9,7 @@ import { NotFound } from '~/components/NotFound';
 import { Header } from '~/landing/Header';
 import { SideNav } from '~/landing/SideNav';
 import { SimpleCounter } from '~/counting/SimpleCounter';
-import { componentRouteMappings } from '~/landing/componentRouteMappings';
+import { componentRouteMappings } from '~/core/componentRouteMappings';
 
 export const App: React.SFC = () => {
     return (
