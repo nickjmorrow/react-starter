@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { App } from '~/landing/App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { rootReducer } from '~/rootReducer';
+import { rootReducer } from '~/redux/rootReducer';
 import { MemoryRouter } from 'react-router';
 
 let container = (null as unknown) as HTMLDivElement;

@@ -1,14 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { RootState } from '../RootState';
 import { Switch, Route } from 'react-router';
-import { Counter } from '~/components/Counter';
-import { FetchData } from '~/components/FetchData';
-import { NotFound } from '~/components/NotFound';
+import { NotFound } from '~/core/NotFound';
 import { Header } from '~/landing/Header';
 import { SideNav } from '~/landing/SideNav';
-import { SimpleCounter } from '~/counting/SimpleCounter';
 import { componentRouteMappings } from '~/core/componentRouteMappings';
 
 export const App: React.SFC = () => {
@@ -19,9 +14,6 @@ export const App: React.SFC = () => {
                 <SideNav />
                 <Main>
                     <Switch>
-                        <Route exact path="/simple-counter" component={SimpleCounter} />
-                        <Route path="/counter" component={Counter} />
-                        <Route path="/fetch-data" component={FetchData} />
                         {componentRouteMappings.map(crm => (
                             <Route key={crm.route} path={crm.route} component={crm.component} />
                         ))}

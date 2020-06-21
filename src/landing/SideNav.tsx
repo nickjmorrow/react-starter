@@ -6,8 +6,6 @@ import { componentRouteMappings } from '~/core/componentRouteMappings';
 export const SideNav: React.FC = () => {
     return (
         <StyledNav>
-            <Link route={'/counter'}>Counter</Link>
-            <Link route={'/simple-counter'}>Simple Counter</Link>
             {componentRouteMappings.map(crm => (
                 <Link key={crm.route} route={crm.route}>
                     {crm.label}
