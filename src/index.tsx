@@ -4,13 +4,16 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { App } from '~/landing/App';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '~/theming/ThemeProvider';
 
 const baseUrl = '';
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter basename={baseUrl}>
-            <App />
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
         </BrowserRouter>
     </Provider>,
     document.querySelector('#container'),

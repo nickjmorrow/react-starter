@@ -1,10 +1,16 @@
+// external
 import React from 'react';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router';
+import 'normalize.css';
+
+// inter
 import { NotFound } from '~/core/NotFound';
+import { componentRouteMappings } from '~/core/componentRouteMappings';
+
+// intra
 import { Header } from '~/landing/Header';
 import { SideNav } from '~/landing/SideNav';
-import { componentRouteMappings } from '~/core/componentRouteMappings';
 
 export const App: React.SFC = () => {
     return (

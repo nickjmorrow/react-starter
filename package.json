@@ -10,7 +10,8 @@
         "test": "jest",
         "format": "prettier --write '*/**/*.{ts,tsx}'",
         "cypress:open": "cypress open",
-        "cypress:run": "cypress run"
+        "cypress:run": "cypress run",
+        "depgraph": "depcruise --include-only '^src' --output-type dot src | dot -T svg > dependencygraph.svg"
     },
     "dependencies": {
         "@testing-library/react": "^10.3.0",
@@ -25,6 +26,7 @@
         "history": "^4.10.1",
         "html-webpack-plugin": "^4.3.0",
         "immer": "^6.0.3",
+        "normalize.css": "^8.0.1",
         "prop-types": "15.7.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
@@ -62,6 +64,9 @@
         "@types/sinon": "^9.0.0",
         "babel-eslint": "9.0.0",
         "babel-loader": "8.0.4",
+        "circular-dependency-plugin": "^5.2.0",
+        "css-loader": "^3.6.0",
+        "dependency-cruiser": "^9.7.0",
         "eslint": "^6.8.0",
         "eslint-config-airbnb": "17.1.1",
         "eslint-config-prettier": "^4.3.0",
