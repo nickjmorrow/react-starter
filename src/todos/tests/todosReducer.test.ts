@@ -1,6 +1,6 @@
-import { TodosState } from '~/todos/TodosState';
-import { todoActions } from '~/todos/todoActions';
-import { todosReducer } from '~/todos/todosReducer';
+import { TodosState } from '~/todos/types/TodosState';
+import { todoActions } from '~/todos/state/todoActions';
+import { todosReducer } from '~/todos/state/todosReducer';
 import { ActionType } from 'typesafe-actions';
 
 interface TestArgument {

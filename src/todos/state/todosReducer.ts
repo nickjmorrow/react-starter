@@ -1,8 +1,8 @@
 import { todoActions, TodosActionTypeKeys } from './todoActions';
-import { TodosState } from './TodosState';
+import { TodosState } from '~/todos/types/TodosState';
 import { ActionType } from 'typesafe-actions';
 import { produce } from 'immer';
-import { todosInitialState } from '~/todos/todosInitialState';
+import { todosInitialState } from '~/todos/state/todosInitialState';
 
 export const todosReducer = (
     state: TodosState = todosInitialState,

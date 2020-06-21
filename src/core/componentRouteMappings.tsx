@@ -1,5 +1,4 @@
-import { TodosPage } from '~/todos/TodosPage';
-import { TodosPageSimple } from '~/todos/TodosPageSimple';
+import { TodosPage } from '~/todos/components/TodosPage';
 import { Home } from '~/landing/Home';
 
 export const componentRouteMappings = [
@@ -7,11 +6,6 @@ export const componentRouteMappings = [
         component: TodosPage,
         route: '/todos',
         label: 'Todos',
-    },
-    {
-        component: TodosPageSimple,
-        route: '/todos-simple',
-        label: 'Todos Simple',
     },
     {
         component: Home,

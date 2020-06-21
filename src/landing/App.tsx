@@ -11,6 +11,7 @@ import { componentRouteMappings } from '~/core/componentRouteMappings';
 // intra
 import { Header } from '~/landing/Header';
 import { SideNav } from '~/landing/SideNav';
+import { Footer } from '~/landing/Footer';
 
 export const App: React.SFC = () => {
     return (
@@ -27,6 +28,7 @@ export const App: React.SFC = () => {
                     </Switch>
                 </Main>
             </Body>
+            <Footer />
         </Container>
     );
 };

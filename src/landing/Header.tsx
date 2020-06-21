@@ -14,7 +14,7 @@ const StyledHeader = styled.header`
     height: 64px;
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 32px;
 `;
 
 const AppName = styled(Typography)``;

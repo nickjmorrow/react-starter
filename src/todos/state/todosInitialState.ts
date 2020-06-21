@@ -1,4 +1,4 @@
-import { Todo } from '../todos/types/Todo';
+import { Todo } from '../types/Todo';
 
 const todos: Todo[] = [
     { todoId: 1, description: 'todo 1' },

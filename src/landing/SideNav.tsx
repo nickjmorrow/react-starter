@@ -7,9 +7,9 @@ export const SideNav: React.FC = () => {
     return (
         <StyledNav>
             {componentRouteMappings.map(crm => (
-                <Link key={crm.route} route={crm.route}>
-                    {crm.label}
-                </Link>
+                <NavLink key={crm.route}>
+                    <StyledLink route={crm.route}>{crm.label}</StyledLink>
+                </NavLink>
             ))}
         </StyledNav>
     );
@@ -18,4 +18,15 @@ export const SideNav: React.FC = () => {
 const StyledNav = styled.nav`
     display: flex;
     flex-direction: column;
+    width: 240px;
+`;
+
+const NavLink = styled.div``;
+
+const StyledLink = styled(Link)`
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding-left: 32px;
 `;

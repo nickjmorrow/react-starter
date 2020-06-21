@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { Input } from '~/core/Input';
 import { Button } from '~/core/Button';
-import { todoActions } from '~/todos/todoActions';
+import { todoActions } from '~/todos/state/todoActions';
 import { Typography } from '~/core/Typography';
 import { testingElementIds } from '~/core/testingElementIds';
 

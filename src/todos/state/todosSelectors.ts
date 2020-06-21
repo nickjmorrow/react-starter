@@ -1,4 +1,4 @@
-import { TodosState } from '~/todos/TodosState';
+import { TodosState } from '~/todos/types/TodosState';
 import { Todo } from '~/todos/types/Todo';
 
 interface AppState {

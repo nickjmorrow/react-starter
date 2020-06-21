@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { TodoList } from '~/todos/TodoList';
-import { CreateTodo } from '~/todos/CreateTodo';
+import { TodoList } from '~/todos/components/TodoList';
+import { CreateTodo } from '~/todos/components/CreateTodo';
 
 export const TodosPage: React.FC = () => {
     return (
