@@ -8,7 +8,8 @@
         "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
         "lint:css": "stylelint './src/**/*.tsx'",
         "test": "jest",
-        "format": "prettier --write '*/**/*.{ts,tsx}'"
+        "format": "prettier --write '*/**/*.{ts,tsx}'",
+        "cypress:open": "cypress open"
     },
     "dependencies": {
         "@testing-library/react": "^10.3.0",
@@ -19,6 +20,7 @@
         "@typescript-eslint/eslint-plugin": "^2.19.2",
         "@typescript-eslint/parser": "^2.19.2",
         "clean-webpack-plugin": "^3.0.0",
+        "cypress": "^4.8.0",
         "history": "^4.10.1",
         "html-webpack-plugin": "^4.3.0",
         "immer": "^6.0.3",
