@@ -20,10 +20,15 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
+<<<<<<< HEAD
         "incremental": true,
+=======
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+>>>>>>> 2a1097775112a8a1bb49da5f7253c39113e94db3
         "baseUrl": ".",
         "paths": {
-            "~/*": ["./src/*"]
+            "~/*": ["src/*"]
         }
     },
     "include": ["src"],

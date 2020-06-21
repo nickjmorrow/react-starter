@@ -5,6 +5,7 @@ import { Input } from '~/core/Input';
 import { Button } from '~/core/Button';
 import { todoActions } from '~/todos/todoActions';
 import { Typography } from '~/core/Typography';
+import { testingElementIds } from '~/core/testingElementIds';
 
 export const CreateTodo: React.FC = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,11 @@ export const CreateTodo: React.FC = () => {
     return (
         <Container>
             <Typography>Create Todo</Typography>
-            <Input value={description} onChange={(e): void => setDescription(e.currentTarget.value)} />
+            <Input
+                value={description}
+                onChange={(e): void => setDescription(e.currentTarget.value)}
+                data-test-id={testingElementIds.createTodoInput}
+            />
             <Button onClick={handleClick}>Submit</Button>
         </Container>
     );
