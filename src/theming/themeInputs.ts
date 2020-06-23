@@ -10,7 +10,7 @@ const defaultCorePaletteInputs = {
 
 const defaultAccentPaletteInputs = {
     ...defaultCorePaletteInputs,
-    hue: 190, // hsl(190, 70%, 50%)
+    hue: 270, // hsl(270, 70%, 50%)
 };
 
 const defaultNeutralPaletteInputs = {

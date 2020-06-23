@@ -6,11 +6,13 @@ import { componentRouteMappings } from '~/core/componentRouteMappings';
 export const SideNav: React.FC = () => {
     return (
         <StyledNav>
-            {componentRouteMappings.map(crm => (
-                <NavLink key={crm.route}>
-                    <StyledLink route={crm.route}>{crm.label}</StyledLink>
-                </NavLink>
-            ))}
+            {componentRouteMappings
+                .filter(crm => crm.isVisible)
+                .map(crm => (
+                    <NavLink key={crm.route}>
+                        <StyledLink route={crm.route}>{crm.label}</StyledLink>
+                    </NavLink>
+                ))}
         </StyledNav>
     );
 };
@@ -28,5 +30,5 @@ const StyledLink = styled(Link)`
     height: 48px;
     display: flex;
     align-items: center;
-    padding-left: 32px;
+    padding-left: 64px;
 `;

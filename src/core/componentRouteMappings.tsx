@@ -6,10 +6,12 @@ export const componentRouteMappings = [
         component: TodosPage,
         route: '/todos',
         label: 'Todos',
+        isVisible: true,
     },
     {
         component: Home,
         route: '/',
         label: 'Home',
+        isVisible: true,
     },
 ];

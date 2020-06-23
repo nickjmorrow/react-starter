@@ -12,24 +12,34 @@ import { componentRouteMappings } from '~/core/componentRouteMappings';
 import { Header } from '~/landing/Header';
 import { SideNav } from '~/landing/SideNav';
 import { Footer } from '~/landing/Footer';
+import { Provider } from 'react-redux';
+import { store } from '~/store';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '~/theming/ThemeProvider';
 
 export const App: React.SFC = () => {
     return (
-        <Container>
-            <Header />
-            <Body>
-                <SideNav />
-                <Main>
-                    <Switch>
-                        {componentRouteMappings.map(crm => (
-                            <Route key={crm.route} path={crm.route} component={crm.component} />
-                        ))}
-                        <Route component={NotFound} />
-                    </Switch>
-                </Main>
-            </Body>
-            <Footer />
-        </Container>
+        <Provider store={store}>
+            <BrowserRouter>
+                <ThemeProvider>
+                    <Container>
+                        <Header />
+                        <Body>
+                            <SideNav />
+                            <Main>
+                                <Switch>
+                                    {componentRouteMappings.map(crm => (
+                                        <Route key={crm.route} path={crm.route} component={crm.component} />
+                                    ))}
+                                    <Route component={NotFound} />
+                                </Switch>
+                            </Main>
+                        </Body>
+                        <Footer />
+                    </Container>
+                </ThemeProvider>
+            </BrowserRouter>
+        </Provider>
     );
 };
 

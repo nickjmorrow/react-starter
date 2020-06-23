@@ -1,4 +1,4 @@
-import { themeInputs as themeInputsT } from '~/theming/themeInputs';
+import { themeInputs as themeInputsValue } from '~/theming/themeInputs';
 import {
     generateColorShades,
     getTransitions,
@@ -10,7 +10,7 @@ import {
     getIconSize,
 } from '~/theming/styleProviders';
 
-export const getTheme = (themeInputs: typeof themeInputsT) => ({
+export const getTheme = (themeInputs: typeof themeInputsValue) => ({
     colors: {
         background: 'hsl(0, 0%, 100%)',
         transparent: 'transparent',

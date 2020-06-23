@@ -8,16 +8,7 @@ import { ThemeProvider } from '~/theming/ThemeProvider';
 
 const baseUrl = '';
 
-ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter basename={baseUrl}>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </BrowserRouter>
-    </Provider>,
-    document.querySelector('#container'),
-);
+ReactDOM.render(<App />, document.querySelector('#container'));
 
 if (module && module.hot) {
     module.hot.accept();

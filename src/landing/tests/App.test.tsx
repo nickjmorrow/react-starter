@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from '~/redux/rootReducer';
 import { MemoryRouter } from 'react-router';
+import { ThemeProvider } from '~/theming/ThemeProvider';
 
 let container = (null as unknown) as HTMLDivElement;
 beforeEach(() => {
@@ -25,7 +26,9 @@ it('renders with an error', () => {
         render(
             <MemoryRouter>
                 <Provider store={store}>
-                    <App />
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
                 </Provider>
             </MemoryRouter>,
             container,
